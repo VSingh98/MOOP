@@ -1,0 +1,32 @@
+Filename: README
+Author: Vansh Singh
+Date: 3/16/18
+
+
+This program converts the raw text file into two mp4 videos using horizontal compression.
+It converts a 640 x 480 image into 640 x 60 image
+
+One of the mp4 videos was made using binary char printing compression.
+	In this compression strategy, blocks of eight pixels were combined into a
+	single decimal value between 0 and 255. Then, this unsigned char was printed
+	to a yuv file. From this yuv file, then, we made an mp4 file using ffmpeg
+
+The other mp4 videos was made using my own simplistic horizontal compression algorithm where
+	I take a block of eight pixels, and if one of the pixels is contains a one, I assign that
+	block of eight pixels the value of 255. Otherwise, if it is all 0s, I assign that block the
+	value of 0. Then, I print this into a yuv file and create an mp4 using ffmpeg
+
+In this program we see that both programs create yuv files of the same size, but my algorithm
+creates smaller mp4 files than the binary char printing algorithm.
+
+run "make" to make the raw video.
+	This will store the .o file(s) in the bin directory
+	This will store the yuv file(s) in the yuv directory
+	This will store the debug file(s) in the debug directory
+	This will backup the convert.cpp file in the backup folder 
+		if convert.cpp was changed
+
+run "make clean" to clean the 
+	bin, debug, vid, and yuv directories
+
+run "make new" to first clean this directory and then create the video

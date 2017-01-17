@@ -1,0 +1,18 @@
+Filename: README
+Author: Vansh Singh
+Date: 3/16/18
+
+
+This program converts the raw text file into a raw mp4 video.
+
+run "make" to make the raw video.
+	This will store the .o file(s) in the bin directory
+	This will store the yuv file(s) in the yuv directory
+	This will store the debug file(s) in the debug directory
+	This will backup the convert.cpp file in the backup folder 
+		if convert.cpp was changed
+
+run "make clean" to clean the 
+	bin, debug, vid, and yuv directories
+
+run "make new" to first clean this directory and then create the video

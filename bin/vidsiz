@@ -1,0 +1,35 @@
+#! /bin/bash
+bars="---------------------------------------------------------------"
+
+for param in RawVideo/ Vertical/ Horizontal/
+do
+
+    if [ ! -d ${param} ]
+    then
+        echo "${param} does not exist, excluding this parameter" >&2
+        continue
+	fi
+
+    if [ ! -d ${param}vid ]
+    then
+        echo "${param}vid does not exist, excluding this parameter" >&2
+        continue
+	fi
+
+    cwd="${param}vid"
+    file_arr=( $( find $cwd -maxdepth 1 -type f ) )
+	arr_len=${#file_arr[@]}
+
+	[ $arr_len -eq 0 ] && continue
+
+	echo $bars
+	echo $param
+
+	for file in "${file_arr[@]}"
+	do
+		du -b ${file}
+	done
+
+done
+
+echo $bars

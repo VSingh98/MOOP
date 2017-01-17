@@ -1,0 +1,27 @@
+#! /bin/bash 
+
+if [ ! -f ${1}.cpp ]
+then
+    echo "${1}.cpp is not a file" >&2
+    exit
+fi
+
+if [! -d "qpTesting/" ]
+then
+	echo "making qpTesting directory" >&2
+	mkdir qpTesting
+else
+	rm -f qpTesting/*
+fi
+
+g++ -Wall -pedantic -o bin/qpTest.o ${1}.cpp
+
+if [ $? != 0 ] 
+then
+    echo "error compiling ${1}.cpp \n check input" > &2
+    exit $?
+fi
+
+for i in {0..51}
+do
+	bin/qpTest.o "qpTesting/${1}${i}.yuv" ../Data/rawvideo.txt
