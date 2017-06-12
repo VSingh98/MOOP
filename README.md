@@ -1,6 +1,6 @@
 Filename: README
 Author: Vansh Singh
-Date: 3/16/18
+Date: 3/18/16
 
 run "make" to make all of the videos in this directory.
 	This will perform a raw conversion of the video in the RawVideo directory.
